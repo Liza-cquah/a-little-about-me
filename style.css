@@ -35,10 +35,20 @@ html {
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(ellipse at top left, #f9e9ed 0%, transparent 38%),
-    radial-gradient(ellipse at bottom right, #f5e3e5 0%, transparent 35%),
-    var(--ivory);
+
+  background-color: #280810;
+  background-image:
+    linear-gradient(
+      rgba(40, 8, 16, 0.48),
+      rgba(40, 8, 16, 0.48)
+    ),
+    url("https://images.unsplash.com/photo-1494972308805-463bc619d34e?auto=format&fit=crop&w=2400&q=85");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
   color: var(--text);
   font-family: "DM Sans", sans-serif;
   font-size: 15px;
