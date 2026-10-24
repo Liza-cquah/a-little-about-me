@@ -1,0 +1,671 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About Me ♡ A Little About Me...</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ========================================
+       ABOUT ME ♡ SCRAPBOOK STYLES
+       These styles only affect about.html.
+       ======================================== */
+
+    .about-page {
+      padding-bottom: 50px;
+    }
+
+    .about-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 55px 25px;
+      margin-bottom: 35px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at top left, #fffaf0, transparent 65%),
+        linear-gradient(135deg, #fff8f0, #f6e4e8);
+      border: 1px solid #e8c8d0;
+      border-radius: 28px;
+      box-shadow: 0 12px 35px rgba(45, 8, 20, 0.18);
+    }
+
+    .about-hero::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px dashed #d3a4ad;
+      border-radius: 20px;
+      pointer-events: none;
+    }
+
+    .about-hero-bow {
+      position: relative;
+      margin-bottom: 8px;
+      color: #781f3a;
+      font-size: 43px;
+    }
+
+    .about-hero h1 {
+      position: relative;
+      color: #4d1428;
+      font-family: "Cinzel", serif;
+      font-size: clamp(27px, 5vw, 43px);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .about-hero h1 span {
+      display: block;
+      color: #963d58;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(48px, 8vw, 76px);
+      font-weight: 400;
+    }
+
+    .about-hero p {
+      position: relative;
+      max-width: 480px;
+      margin: 15px auto 0;
+      color: #80626b;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 19px;
+      font-style: italic;
+    }
+
+    .scrapbook-label {
+      display: inline-block;
+      padding: 5px 13px;
+      margin-bottom: 12px;
+      background: #f7e3e8;
+      border: 1px solid #e8c7d0;
+      border-radius: 5px;
+      color: #781f3a;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transform: rotate(-2deg);
+    }
+
+    .about-section {
+      margin-top: 35px;
+    }
+
+    .about-heading {
+      margin-bottom: 22px;
+      color: #fff4f0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(27px, 4vw, 34px);
+      font-weight: 500;
+      text-align: center;
+      text-shadow: 0 2px 10px rgba(30, 0, 10, 0.45);
+    }
+
+    .about-heading span {
+      display: block;
+      margin-top: 2px;
+      color: #f1c8d3;
+      font-family: "Great Vibes", cursive;
+      font-size: 32px;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .scrapbook-card {
+      position: relative;
+      min-width: 0;
+      padding: 25px;
+      background: #fffaf5;
+      border: 1px solid #ead7ce;
+      border-radius: 7px;
+      box-shadow: 0 8px 22px rgba(30, 0, 10, 0.16);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .scrapbook-card:hover {
+      transform: translateY(-4px) rotate(0deg);
+      box-shadow: 0 13px 28px rgba(30, 0, 10, 0.22);
+    }
+
+    .profile-card:nth-child(odd) {
+      transform: rotate(-1deg);
+    }
+
+    .profile-card:nth-child(even) {
+      transform: rotate(1deg);
+    }
+
+    .card-tape {
+      position: absolute;
+      top: -9px;
+      left: 50%;
+      width: 64px;
+      height: 19px;
+      background: rgba(215, 166, 176, 0.65);
+      transform: translateX(-50%) rotate(-3deg);
+    }
+
+    .profile-icon {
+      margin-bottom: 8px;
+      color: #963d58;
+      font-size: 25px;
+    }
+
+    .profile-card h3,
+    .scrapbook-card h3 {
+      margin-bottom: 8px;
+      color: #781f3a;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .profile-card p,
+    .scrapbook-card p {
+      color: #80626b;
+      font-size: 13px;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+    }
+
+    .write-in {
+      display: block;
+      min-height: 27px;
+      margin-top: 10px;
+      padding: 4px 0;
+      border-bottom: 1px dashed #c78394;
+      color: #a16c7b;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 17px;
+      font-style: italic;
+    }
+
+    .write-in::before {
+      content: "write here ♡";
+    }
+
+    .personality-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .personality-card {
+      text-align: center;
+      background: #fff1f3;
+      border-radius: 45% 45% 12px 12px;
+      padding-top: 35px;
+    }
+
+    .personality-card:nth-child(2) {
+      background: #fff8ec;
+      transform: translateY(12px);
+    }
+
+    .personality-card:nth-child(3) {
+      background: #f5e8ed;
+    }
+
+    .personality-symbol {
+      display: block;
+      margin-bottom: 10px;
+      color: #963d58;
+      font-size: 34px;
+    }
+
+    .little-note {
+      position: relative;
+      padding: 32px;
+      background: #f8efe6;
+      border: 1px solid #d9c3ad;
+      border-radius: 4px;
+      box-shadow: 5px 7px 0 rgba(178, 139, 97, 0.22);
+      transform: rotate(-0.5deg);
+    }
+
+    .little-note::before {
+      content: "♡";
+      position: absolute;
+      top: 10px;
+      right: 17px;
+      color: #c78394;
+      font-size: 25px;
+    }
+
+    .little-note h3 {
+      margin-bottom: 15px;
+      color: #781f3a;
+      font-family: "Great Vibes", cursive;
+      font-size: 37px;
+      font-weight: 400;
+    }
+
+    .fun-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .fun-fact {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 18px;
+      background: rgba(255, 250, 245, 0.97);
+      border: 1px solid #ead7ce;
+      border-radius: 14px;
+      box-shadow: 0 5px 15px rgba(30, 0, 10, 0.12);
+    }
+
+    .fun-fact span {
+      color: #963d58;
+      font-size: 22px;
+    }
+
+    .fun-fact p {
+      color: #80626b;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .fun-fact strong {
+      display: block;
+      margin-bottom: 3px;
+      color: #781f3a;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 19px;
+    }
+
+    .about-closing {
+      padding: 50px 15px 20px;
+      text-align: center;
+    }
+
+    .about-closing .closing-bow {
+      display: block;
+      margin-bottom: 12px;
+      color: #f1c8d3;
+      font-size: 35px;
+      text-shadow: 0 2px 10px rgba(30, 0, 10, 0.4);
+    }
+
+    .about-closing p {
+      color: #fff4f0;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(30px, 5vw, 42px);
+      text-shadow: 0 2px 10px rgba(30, 0, 10, 0.45);
+    }
+
+    .about-closing small {
+      display: block;
+      margin-top: 10px;
+      color: #f4dfe4;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 16px;
+      font-style: italic;
+    }
+
+    @media (max-width: 650px) {
+      .about-hero {
+        padding: 45px 18px;
+      }
+
+      .profile-grid,
+      .fun-facts {
+        grid-template-columns: 1fr;
+      }
+
+      .personality-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .personality-card,
+      .personality-card:nth-child(2),
+      .personality-card:nth-child(3) {
+        border-radius: 18px;
+        transform: none;
+      }
+
+      .scrapbook-card {
+        padding: 23px;
+      }
+
+      .little-note {
+        padding: 27px 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scrapbook-card {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="site-wrapper about-page">
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <span class="brand-bow">୨୧</span>
+        <span class="brand-name">a little about me...</span>
+      </a>
+      <p class="header-note">a tiny scrapbook of my world ♡</p>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="main-navigation" aria-label="Main navigation">
+      <a class="nav-link" href="index.html"><span>♡</span> Home</a>
+      <a class="nav-link active" href="about.html"><span>୨୧</span> About Me</a>
+      <a class="nav-link" href="little-things.html"><span>✿</span> Little Things</a>
+      <a class="nav-link" href="favorites.html"><span>♡</span> Favorites</a>
+      <a class="nav-link" href="note.html"><span>✉</span> A Little Note</a>
+    </nav>
+
+    <!-- WELCOME -->
+    <section class="about-hero">
+      <div class="about-hero-bow">୨୧</div>
+      <span class="scrapbook-label">a page all about me</span>
+      <h1>
+        Welcome to my
+        <span>little world ♡</span>
+      </h1>
+      <p>
+        A collection of little details, lovely memories,
+        silly quirks, and things that make me who I am.
+      </p>
+    </section>
+
+    <!-- BASIC FACTS -->
+    <section class="about-section">
+      <h2 class="about-heading">
+        The basics
+        <span>the little details ♡</span>
+      </h2>
+
+      <div class="profile-grid">
+
+        <article class="scrapbook-card profile-card">
+          <div class="card-tape"></div>
+          <div class="profile-icon">୨୧</div>
+          <h3>What to call me</h3>
+          <p>My name, nickname, or whatever feels like me.</p>
+          <span class="write-in"></span>
+        </article>
+
+        <article class="scrapbook-card profile-card">
+          <div class="card-tape"></div>
+          <div class="profile-icon">♡</div>
+          <h3>My birthday</h3>
+          <p>A little day worth celebrating.</p>
+          <span class="write-in"></span>
+        </article>
+
+        <article class="scrapbook-card profile-card">
+          <div class="card-tape"></div>
+          <div class="profile-icon">✿</div>
+          <h3>My kind of style</h3>
+          <p>The colors, clothes, and little details I adore.</p>
+          <span class="write-in"></span>
+        </article>
+
+        <article class="scrapbook-card profile-card">
+          <div class="card-tape"></div>
+          <div class="profile-icon">☾</div>
+          <h3>A little motto</h3>
+          <p>A phrase, lyric, or reminder I want to carry with me.</p>
+          <span class="write-in"></span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PERSONALITY -->
+    <section class="about-section">
+      <h2 class="about-heading">
+        Things that make me, me
+        <span>my little personality ♡</span>
+      </h2>
+
+      <div class="personality-grid">
+
+        <article class="scrapbook-card personality-card">
+          <span class="personality-symbol">♡</span>
+          <h3>I'm the kind of person who...</h3>
+          <p>Write a few words about your personality, values, or the way you see the world.</p>
+          <span class="write-in"></span>
+        </article>
+
+        <article class="scrapbook-card personality-card">
+          <span class="personality-symbol">☁</span>
+          <h3>My little quirks</h3>
+          <p>Habits, odd little routines, or things your friends would recognize instantly.</p>
+          <span class="write-in"></span>
+        </article>
+
+        <article class="scrapbook-card personality-card">
+          <span class="personality-symbol">୨୧</span>
+          <h3>People say I'm...</h3>
+          <p>Words your friends or family might use to describe you.</p>
+          <span class="write-in"></span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- HOBBIES -->
+    <section class="about-section">
+      <h2 class="about-heading">
+        My little world
+        <span>hobbies & interests ♡</span>
+      </h2>
+
+      <div class="profile-grid">
+
+        <article class="scrapbook-card">
+          <div class="card-tape"></div>
+          <div class="profile-icon">✎</div>
+          <h3>Things I love doing</h3>
+          <p>Creative projects, hobbies, activities, or things I could do for hours.</p>
+          <span class="write-in"></span>
+        </article>
+
+        <article class="scrapbook-card">
+          <div class="card-tape"></div>
+          <div class="profile-icon">♫</div>
+          <h3>My current obsessions</h3>
+          <p>Things I'm learning, watching, listening to, or talking about lately.</p>
+          <span class="write-in"></span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FUN FACTS -->
+    <section class="about-section">
+      <h2 class="about-heading">
+        Little things you might not know
+        <span>my fun facts ♡</span>
+      </h2>
+
+      <div class="fun-facts">
+
+        <article class="fun-fact">
+          <span>☕</span>
+          <p>
+            <strong>A little comfort</strong>
+            Something that instantly makes a bad day better.
+            <span class="write-in"></span>
+          </p>
+        </article>
+
+        <article class="fun-fact">
+          <span>🌙</span>
+          <p>
+            <strong>My perfect day</strong>
+            What a genuinely lovely day looks like to me.
+            <span class="write-in"></span>
+          </p>
+        </article>
+
+        <article class="fun-fact">
+          <span>🧸</span>
+          <p>
+            <strong>A silly fact</strong>
+            Something random, unexpected, or a little embarrassing.
+            <span class="write-in"></span>
+          </p>
+        </article>
+
+        <article class="fun-fact">
+          <span>💌</span>
+          <p>
+            <strong>A tiny secret</strong>
+            A harmless surprise or something not everyone knows about me.
+            <span class="write-in"></span>
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- NOTE TO VISITORS -->
+    <section class="about-section">
+      <h2 class="about-heading">
+        A little note
+        <span>from my scrapbook ♡</span>
+      </h2>
+
+      <div class="little-note">
+        <h3>Dear lovely visitor,</h3>
+        <p>
+          Thank you for taking a little peek into my world.
+          This page is a collection of the tiny details that
+          make life feel special to me. There's always more
+          to learn, more to love, and more little memories
+          waiting to be made.
+        </p>
+        <br>
+        <p>
+          <em>
+            Add your own message here to make this note
+            feel a little more like you. ♡
+          </em>
+        </p>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="about-closing">
+      <span class="closing-bow">୨୧</span>
+      <p>That's a little piece of me ♡</p>
+      <small>Thank you for being here.</small>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-divider">♡ · ୨୧ · ♡</div>
+      <p>Made with love, a little daydreaming, and lots of bows.</p>
+      <p class="footer-small">a little about me... ♡</p>
+    </footer>
+
+  </main>
+
+  <!-- SPOTIFY DRAWER -->
+  <aside class="spotify-drawer" id="spotify-drawer">
+    <button
+      class="spotify-tab"
+      id="spotify-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="spotify-panel"
+    >
+      <span class="spotify-tab-bow">୨୧</span>
+      <span class="spotify-tab-text">Spotify</span>
+      <span class="spotify-tab-note">♫</span>
+    </button>
+
+    <div class="spotify-panel" id="spotify-panel" aria-hidden="true">
+      <div class="spotify-panel-heading">
+        <div>
+          <span class="eyebrow">a little soundtrack</span>
+          <h2>My Spotify ♡</h2>
+        </div>
+
+        <button
+          class="spotify-close"
+          id="spotify-close"
+          type="button"
+          aria-label="Close Spotify panel"
+        >×</button>
+      </div>
+
+      <p class="spotify-description">
+        A few songs to keep you company. ♡
+      </p>
+
+      <iframe
+        title="My Spotify playlist"
+        style="border-radius: 12px"
+        src="https://open.spotify.com/embed/playlist/5mD2nmola5PVCOyPNZXoJc?utm_source=generator&theme=0"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      ></iframe>
+
+      <p class="spotify-footer">made for little moments ♡</p>
+    </div>
+  </aside>
+
+  <!-- SPOTIFY INTERACTION -->
+  <script>
+    const spotifyDrawer = document.getElementById("spotify-drawer");
+    const spotifyToggle = document.getElementById("spotify-toggle");
+    const spotifyClose = document.getElementById("spotify-close");
+    const spotifyPanel = document.getElementById("spotify-panel");
+
+    function setSpotifyOpen(isOpen) {
+      spotifyDrawer.classList.toggle("is-open", isOpen);
+      spotifyToggle.setAttribute("aria-expanded", String(isOpen));
+      spotifyPanel.setAttribute("aria-hidden", String(!isOpen));
+    }
+
+    spotifyToggle.addEventListener("click", function () {
+      const isOpen = spotifyDrawer.classList.contains("is-open");
+      setSpotifyOpen(!isOpen);
+    });
+
+    spotifyClose.addEventListener("click", function () {
+      setSpotifyOpen(false);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        setSpotifyOpen(false);
+      }
+    });
+  </script>
+
+</body>
+</html>
+```
