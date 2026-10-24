@@ -37,10 +37,11 @@ body {
   min-height: 100vh;
 
   background-color: #280810;
+
   background-image:
     linear-gradient(
-      rgba(40, 8, 16, 0.48),
-      rgba(40, 8, 16, 0.48)
+      rgba(40, 8, 16, 0.25),
+      rgba(40, 8, 16, 0.25)
     ),
     url("https://unsplash.com/photos/red-rose-flower-photograph-3doyPD560B0");
 
@@ -55,7 +56,6 @@ body {
   line-height: 1.8;
   overflow-x: hidden;
 }
-
 a {
   color: inherit;
   text-decoration: none;
